@@ -31,7 +31,7 @@ def test_inner_state_tree(data, expected_state):
     spltree = SplayTree()
     for i, val in enumerate(data):
         spltree.insert(val)
-        assert spltree.inorder() == expected_state[i]
+        assert spltree.inorder() == expected_state[i], f'На шаге {i} неверное состояние'
 
 @pytest.mark.parametrize("data, expected_state",
                          [
@@ -55,7 +55,7 @@ def test_search_tree(data, expected_state):
     for key, exp_found in expected_state:
         node = spltree.search_tree(key)
         not_none = node != None
-        assert not_none == exp_found
+        assert not_none == exp_found, f'Поиск элемента {key} выдал не тот результат'
         if not_none:
-            assert key == node.data
+            assert key == node.data, f'Node с ключем {key} имеет другое значение'
 

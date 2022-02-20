@@ -1,8 +1,8 @@
 import math
 
 
-def cos_power_series(x: float, iterations: int = 33) -> float:
+def sin_power_series(x: float, iterations: int = 42) -> float:
     ans = 0
-    for i in range(iterations):
-        ans += ((-1) ** i) * (x ** (2 * i)) / math.factorial(2 * i)
+    for i in range(1, iterations):
+        ans += ((-1) ** (i-1)) * (x ** (2 * i - 1)) / math.factorial(2 * i - 1)
     return ans

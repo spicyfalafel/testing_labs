@@ -4,14 +4,14 @@
 
 # data structure that represents a node in the tree
 
-import sys
 
 class Node:
-    def  __init__(self, data):
+    def __init__(self, data):
         self.data = data
         self.parent = None
         self.left = None
         self.right = None
+
 
 class SplayTree:
     def __init__(self):
@@ -24,8 +24,6 @@ class SplayTree:
         if key < node.data:
             return self.__search_tree_helper(node.left, key)
         return self.__search_tree_helper(node.right, key)
-
-
 
     def __delete_node_helper(self, node, key):
         x = None
@@ -41,7 +39,7 @@ class SplayTree:
                 node = node.left
 
         if x == None:
-            print ("Couldn't find key in the tree")
+            print("Couldn't find key in the tree")
             return
 
         # split operation
@@ -204,7 +202,7 @@ class SplayTree:
 
     # insert the key to the tree in its appropriate position
     def insert(self, key):
-        node =  Node(key)
+        node = Node(key)
         y = None
         x = self.root
 
@@ -229,4 +227,3 @@ class SplayTree:
     # delete the node from the tree
     def delete_node(self, data):
         self.__delete_node_helper(self.root, data)
-

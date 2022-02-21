@@ -1,12 +1,10 @@
 from models.algorithm.algorithm import SplayTree
 import pytest
 
-from utilities.sort_utility import is_sorted
-
 
 @pytest.mark.parametrize("data, expected_state",
                          [
-                             ([5, 4, 6 , 6, 1, 1, 10, 3, 4, 0, 11],
+                             ([5, 4, 6, 6, 1, 1, 10, 3, 4, 0, 11],
                               [
                                   [5],
                                   [4, 5],
@@ -33,6 +31,7 @@ def test_inner_state_tree(data, expected_state):
         spltree.insert(val)
         assert spltree.inorder() == expected_state[i], f'На шаге {i} неверное состояние'
 
+
 @pytest.mark.parametrize("data, expected_state",
                          [
                              ([5, 4, 6, 6, 1, 1, 10, 3, 4, 0, 11],
@@ -58,4 +57,3 @@ def test_search_tree(data, expected_state):
         assert not_none == exp_found, f'Поиск элемента {key} выдал не тот результат'
         if not_none:
             assert key == node.data, f'Node с ключем {key} имеет другое значение'
-
